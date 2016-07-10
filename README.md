@@ -30,4 +30,3 @@ $ npm run build
 
 
 
-Thanks to https://github.com/txchen/feplay/tree/gh-pages/riot_webpack for a lot of concepts on how to structure the app.
