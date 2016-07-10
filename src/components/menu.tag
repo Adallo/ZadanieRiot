@@ -10,7 +10,9 @@
 
     this.navItems = [
       { title : 'Home', view : 'home'},
-      { title : 'Projects', view : 'projects' }
+      { title : 'AddToDo', view : 'addtodo'},
+      { title : 'ListToDo', view : 'listtodo'},
+
     ];
 
     this.route = (evt) => {

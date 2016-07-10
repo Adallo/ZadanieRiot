@@ -8,20 +8,25 @@ class ItemStore{
   }
 
   bindEvents(){
-    this.on(riot.EVT.loadItems, () => {
       
-      // fake async op 
-      setTimeout(() => {
-        this.items = [{ name : 'test a' },{ name : 'test b' } ,{ name : 'test c' }, { name : 'test d' }];
-        this.trigger(riot.EVT.loadItemsSuccess, this.items);
-      }, 200);
-
+    this.on(riot.EVT.loadItems, () => {
+       this.trigger(riot.EVT.loadItemsSuccess, this.items);
     });
-  }
 
+    this.on(riot.EVT.addItem, (temp) => {
+        this.items.unshift(temp);
+        this.trigger(riot.EVT.loadItems);
+    });
+    
+      this.on(riot.EVT.removeItem, (temps) => {
+          this.items.splice(temps, 1);
+          this.trigger(riot.EVT.loadItems);
+          
+      });
+      
+  }
 }
 
-// add store to riot control
 let itemStore = new ItemStore();
 riot.control.addStore(itemStore);
 
